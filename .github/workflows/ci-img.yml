@@ -24,7 +24,7 @@ jobs:
       - name: Build and push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: my-bmi-img
+          image: cicd-react-iamge
           registry: ghcr.io/yanakorns
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
