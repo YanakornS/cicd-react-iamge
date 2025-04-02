@@ -18,13 +18,13 @@ jobs:
       - name: Extract tag name
         run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
-      - name: Verify extracted tag
-        run: echo "Using TAG_NAME=${{ env.TAG_NAME }}"
+      - name: Debug Tag Name
+        run: echo "GITHUB_REF=${GITHUB_REF}, Extracted TAG_NAME=${{ env.TAG_NAME }}"
 
       - name: Build and push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: cicd-react-iamge
+          image: my-bmi-img  
           registry: ghcr.io/yanakorns
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
